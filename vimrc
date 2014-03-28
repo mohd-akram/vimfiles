@@ -4,29 +4,29 @@ set nocompatible
 filetype off
 
 set rtp+=~/vimfiles/bundle/vundle/
-call vundle#rc('$HOME/vimfiles/bundle/')
+call vundle#rc('~/vimfiles/bundle/')
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-" Bundles
+" Plugins
 
 " GitHub repos
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/unite.vim'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/syntastic'
-Bundle 'Yggdroot/indentLine'
-Bundle 'zah/nimrod.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'Shougo/neocomplcache'
+Plugin 'Shougo/unite.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'Yggdroot/indentLine'
+Plugin 'zah/nimrod.vim'
 
 " Vim scripts
-Bundle 'L9'
-Bundle 'mru.vim'
+Plugin 'L9'
+Plugin 'mru.vim'
 
 filetype plugin indent on
 
@@ -42,26 +42,31 @@ if has('gui_running')
   set guioptions=
 endif
 
-" Set directory to that of current file
-set autochdir
-
-" Set indent
-set autoindent
-set softtabstop=2 shiftwidth=2 expandtab
-
-" Set search options
-set incsearch
-set hlsearch
+" Set encoding
+set encoding=utf-8
 
 " Show line numbers and cursor information
 set number
 set ruler
 
-" Set number of lines and columns
+" Set number of lines, columns and colorcolumn
 set lines=40 columns=83
+set colorcolumn=80
 
-" Set encoding
-set encoding=utf-8
+" Set indent
+set autoindent
+set softtabstop=2 shiftwidth=2 expandtab
+
+" Set split options
+set splitright
+set splitbelow
+
+" Set search options
+set incsearch
+set hlsearch
+
+" Set directory to that of current file
+set autochdir
 
 " Save backup files in TEMP
 set backupdir-=.
