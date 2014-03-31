@@ -6,5 +6,5 @@ setlocal foldmethod=indent
 setlocal foldlevel=99
 
 " Run Python file
-inoremap <F5> <ESC> :!"%"<CR>
-nnoremap <F5> :!"%"<CR>
+inoremap <silent> <unique> <F5> <ESC> :call Bexec()<CR>
+nnoremap <silent> <unique> <F5> :call Bexec()<CR>

@@ -12,17 +12,25 @@ Plugin 'gmarik/vundle'
 
 " GitHub repos
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'Shougo/neocomplcache'
+Plugin 'klen/python-mode'
+Plugin 'zah/nimrod.vim'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'Yggdroot/indentLine'
-Plugin 'zah/nimrod.vim'
+Plugin 'bling/vim-airline'
+Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim'}
+
+" Other repos
+Plugin 'https://bitbucket.org/fboender/bexec.git'
 
 " Vim scripts
 Plugin 'L9'
@@ -38,7 +46,7 @@ colorscheme Tomorrow-Night
 
 " Change the font and remove GUI options
 if has('gui_running')
-  set guifont=Menlo:h10
+  set guifont=Menlo\ for\ Powerline:h10
   set guioptions=
 endif
 
@@ -48,6 +56,9 @@ set encoding=utf-8
 " Show line numbers and cursor information
 set number
 set ruler
+
+" Show staus line
+set laststatus=2
 
 " Set number of lines, columns and colorcolumn
 set lines=40 columns=83
@@ -75,14 +86,27 @@ set backupdir^=$TEMP
 " Run Python snippets
 vnoremap <F5> :!python<CR>
 
+" Set Python version
+let g:jedi#force_py_version = 3
+let g:pymode_python = 'python3'
+
+" Bexec settings
+let bexec_splitdir = 'ver'
+let bexec_outputmode = 'append'
+
 " Save MRU file in TEMP
 let MRU_File = $TEMP . '\_vim_mru_files'
 
 " Enable autocomplete
-let g:neocomplcache_enable_at_startup = 1
+let g:neocomplete#enable_at_startup = 1
+autocmd FileType python NeoCompleteLock
+let g:pymode_rope_completion = 0
 
 " Show bookmarks in NERDTree
 let NERDTreeShowBookmarks = 1
+
+" Use Powerline fonts
+let g:airline_powerline_fonts = 1
 
 " Enable Markdown for .md files
 au BufRead,BufNewFile *.md set filetype=markdown
