@@ -12,7 +12,6 @@ Plugin 'gmarik/vundle'
 
 " GitHub repos
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'klen/python-mode'
 Plugin 'zah/nimrod.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'Shougo/neocomplete.vim'
@@ -22,6 +21,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
@@ -88,7 +89,6 @@ vnoremap <F5> :!python<CR>
 
 " Set Python version
 let g:jedi#force_py_version = 3
-let g:pymode_python = 'python3'
 
 " Bexec settings
 let bexec_splitdir = 'ver'
@@ -100,7 +100,6 @@ let MRU_File = $TEMP . '\_vim_mru_files'
 " Enable autocomplete
 let g:neocomplete#enable_at_startup = 1
 autocmd FileType python NeoCompleteLock
-let g:pymode_rope_completion = 0
 
 " Show bookmarks in NERDTree
 let NERDTreeShowBookmarks = 1
