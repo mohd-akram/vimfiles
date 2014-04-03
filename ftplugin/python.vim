@@ -52,7 +52,7 @@ if !exists('*<SID>Python_IDE')
     " Add right sidebar
     Bexec
     wincmd x
-    vertical resize 74
+    vertical resize 72
     wincmd h
 
     " Show buffer explorer
