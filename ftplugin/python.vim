@@ -29,7 +29,6 @@ if !exists('*<SID>Python_IDE')
     endif
 
     let g:tagbar_left = 1
-    let g:miniBufExplBRSplit = 0
     let g:miniBufExplSplitToEdge = 0
 
     " Resize Vim window

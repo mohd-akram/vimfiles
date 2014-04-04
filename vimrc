@@ -15,6 +15,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'zah/nimrod.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -33,10 +34,6 @@ Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim'}
 
 " Other repos
 Plugin 'https://bitbucket.org/fboender/bexec.git'
-
-" Vim scripts
-Plugin 'L9'
-Plugin 'mru.vim'
 
 filetype plugin indent on
 
@@ -88,22 +85,33 @@ set backupdir^=$TEMP
 " Run Python snippets
 vnoremap <F5> :!python<CR>
 
-" Set Python version
-let g:jedi#force_py_version = 3
+" Unite mappings
+nnoremap <leader>u  :<C-u>Unite -no-split<CR>
+nnoremap <leader>a  :<C-u>Unite -no-split -start-insert file_rec<CR>
+nnoremap <leader>b  :<C-u>Unite -no-split buffer<CR>
+nnoremap <leader>f  :<C-u>Unite -no-split -start-insert file<CR>
+nnoremap <leader>k  :<C-u>Unite -no-split bookmark<CR>
+nnoremap <leader>m  :<C-u>Unite -no-split file_mru<CR>
+nnoremap <leader>t  :<C-u>Unite -no-split tab<CR>
+nnoremap <leader>w  :<C-u>Unite -no-split window<CR>
+
+" Buffer explorer settings
+nnoremap <C-Q>     :MBEbd<CR>
+nnoremap <C-TAB>   :MBEbn<CR>
+nnoremap <C-S-TAB> :MBEbp<CR>
+let g:miniBufExplBRSplit = 0
+let g:miniBufExplCycleArround = 1
 
 " Bexec settings
 let bexec_splitdir = 'ver'
 let bexec_outputmode = 'append'
 
-" Save MRU file in TEMP
-let MRU_File = $TEMP . '\_vim_mru_files'
+" Set jedi Python version
+let g:jedi#force_py_version = 3
 
 " Enable autocomplete
 let g:neocomplete#enable_at_startup = 1
 autocmd FileType python NeoCompleteLock
-
-" Show bookmarks in NERDTree
-let NERDTreeShowBookmarks = 1
 
 " Use Powerline fonts
 let g:airline_powerline_fonts = 1
