@@ -23,7 +23,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'fholgado/minibufexpl.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
@@ -86,21 +85,18 @@ set backupdir^=$TEMP
 vnoremap <F5> :!python<CR>
 
 " Unite mappings
-nnoremap <leader>u  :<C-u>Unite -no-split<CR>
-nnoremap <leader>a  :<C-u>Unite -no-split -start-insert file_rec<CR>
-nnoremap <leader>b  :<C-u>Unite -no-split buffer<CR>
-nnoremap <leader>f  :<C-u>Unite -no-split -start-insert file<CR>
-nnoremap <leader>k  :<C-u>Unite -no-split bookmark<CR>
-nnoremap <leader>m  :<C-u>Unite -no-split file_mru<CR>
-nnoremap <leader>t  :<C-u>Unite -no-split tab<CR>
-nnoremap <leader>w  :<C-u>Unite -no-split window<CR>
+nnoremap <leader>u :<C-u>Unite -no-split<CR>
+nnoremap <leader>a :<C-u>Unite -no-split -start-insert file_rec<CR>
+nnoremap <leader>b :<C-u>Unite -no-split buffer<CR>
+nnoremap <leader>f :<C-u>Unite -no-split -start-insert file<CR>
+nnoremap <leader>k :<C-u>Unite -no-split bookmark<CR>
+nnoremap <leader>m :<C-u>Unite -no-split file_mru<CR>
+nnoremap <leader>t :<C-u>Unite -no-split tab<CR>
+nnoremap <leader>w :<C-u>Unite -no-split window<CR>
 
-" Buffer explorer settings
-nnoremap <C-Q>     :MBEbd<CR>
-nnoremap <C-TAB>   :MBEbn<CR>
-nnoremap <C-S-TAB> :MBEbp<CR>
-let g:miniBufExplBRSplit = 0
-let g:miniBufExplCycleArround = 1
+" Airline settings
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " Bexec settings
 let bexec_splitdir = 'ver'
@@ -112,9 +108,6 @@ let g:jedi#force_py_version = 3
 " Enable autocomplete
 let g:neocomplete#enable_at_startup = 1
 autocmd FileType python NeoCompleteLock
-
-" Use Powerline fonts
-let g:airline_powerline_fonts = 1
 
 " Enable Markdown for .md files
 au BufRead,BufNewFile *.md set filetype=markdown

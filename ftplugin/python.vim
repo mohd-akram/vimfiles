@@ -21,7 +21,6 @@ if !exists('*<SID>Python_IDE')
       TagbarClose
       NERDTreeClose
       BexecCloseOut
-      MBEClose
       let &lines = g:prevLines
       let &columns = g:prevColumns
       let g:IDEMode = 0
@@ -53,9 +52,6 @@ if !exists('*<SID>Python_IDE')
     wincmd x
     vertical resize 72
     wincmd h
-
-    " Show buffer explorer
-    MBEOpen
 
     let g:IDEMode = 1
   endfun
