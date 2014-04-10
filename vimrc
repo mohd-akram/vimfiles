@@ -109,6 +109,23 @@ let g:jedi#force_py_version = 3
 let g:neocomplete#enable_at_startup = 1
 autocmd FileType python NeoCompleteLock
 
+" CoffeeTags settings
+if executable('coffeetags')
+  let g:tagbar_type_coffee = {
+        \ 'ctagsbin' : 'coffeetags',
+        \ 'ctagsargs' : '',
+        \ 'kinds' : [
+        \ 'f:functions',
+        \ 'o:object',
+        \ ],
+        \ 'sro' : ".",
+        \ 'kind2scope' : {
+        \ 'f' : 'object',
+        \ 'o' : 'object',
+        \ }
+        \ }
+endif
+
 " Enable Markdown for .md files
 au BufRead,BufNewFile *.md set filetype=markdown
 
