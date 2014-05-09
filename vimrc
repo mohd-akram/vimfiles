@@ -90,7 +90,7 @@ nnoremap <leader>a :<C-u>Unite -no-split -start-insert file_rec<CR>
 nnoremap <leader>b :<C-u>Unite -no-split buffer<CR>
 nnoremap <leader>f :<C-u>Unite -no-split -start-insert file<CR>
 nnoremap <leader>k :<C-u>Unite -no-split bookmark<CR>
-nnoremap <leader>m :<C-u>Unite -no-split file_mru<CR>
+nnoremap <leader>m :<C-u>Unite -no-split -start-insert file_mru<CR>
 nnoremap <leader>t :<C-u>Unite -no-split tab<CR>
 nnoremap <leader>w :<C-u>Unite -no-split window<CR>
 
