@@ -29,7 +29,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'Yggdroot/indentLine'
 Plugin 'bling/vim-airline'
-Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim'}
+Plugin 'chriskempson/base16-vim'
 
 " Other repos
 Plugin 'https://bitbucket.org/fboender/bexec.git'
@@ -40,7 +40,7 @@ filetype plugin indent on
 
 " Change the color scheme
 syntax on
-colorscheme Tomorrow-Night
+colorscheme base16-ocean
 
 " Change the font and remove GUI options
 if has('gui_running')
