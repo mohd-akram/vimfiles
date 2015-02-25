@@ -1,46 +1,39 @@
-" Vundle settings
+" vim-plug settings
 
-set nocompatible
-filetype off
-
-set rtp+=~/vimfiles/bundle/vundle/
-call vundle#rc('~/vimfiles/bundle/')
-
-Plugin 'gmarik/vundle'
-
-" Plugins
+call plug#begin('~/vimfiles/plugged')
 
 " GitHub repos
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'zah/nimrod.vim'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'Shougo/neomru.vim'
-Plugin 'Shougo/unite.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
-Plugin 'Yggdroot/indentLine'
-Plugin 'bling/vim-airline'
-Plugin 'chriskempson/base16-vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'zah/nimrod.vim'
+Plug 'davidhalter/jedi-vim'
+Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'Shougo/unite.vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
+Plug 'Yggdroot/indentLine'
+Plug 'bling/vim-airline'
+Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
 
 " Other repos
-Plugin 'https://bitbucket.org/fboender/bexec.git'
+Plug 'https://bitbucket.org/fboender/bexec.git'
 
-filetype plugin indent on
+call plug#end()
 
 " My settings
 
 " Change the color scheme
 syntax on
-colorscheme base16-ocean
+colorscheme gruvbox
 
 " Change the font and remove GUI options
 if has('gui_running')
