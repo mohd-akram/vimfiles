@@ -14,6 +14,7 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'fboender/bexec'
 Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
@@ -23,9 +24,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'bling/vim-airline'
 Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
-
-" Other repos
-Plug 'https://bitbucket.org/fboender/bexec.git'
 
 call plug#end()
 
