@@ -4,11 +4,15 @@ call plug#begin('~/vimfiles/plugged')
 
 " GitHub repos
 Plug 'kchmck/vim-coffee-script'
-Plug 'zah/nimrod.vim'
 Plug 'davidhalter/jedi-vim'
-Plug 'Shougo/neocomplete.vim'
-Plug 'Shougo/neomru.vim'
+Plug 'Shougo/vimproc.vim', {'do': 'tools\\update-dll-mingw'}
 Plug 'Shougo/unite.vim'
+Plug 'Shougo/unite-outline'
+Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/neoinclude.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'tsukkee/unite-tag'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-repeat'
@@ -16,8 +20,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'fboender/bexec'
 Plug 'airblade/vim-gitgutter'
-Plug 'majutsushi/tagbar'
-Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
@@ -50,7 +52,7 @@ set ruler
 set laststatus=2
 
 " Set number of lines, columns and colorcolumn
-set lines=40 columns=83
+set lines=45 columns=85
 set colorcolumn=80
 
 " Set indent
@@ -68,6 +70,9 @@ set hlsearch
 " Set directory to that of current file
 set autochdir
 
+" Look for tags
+set tags=tags;
+
 " Save backup files in TEMP
 set backupdir-=.
 set backupdir^=$TEMP
@@ -76,14 +81,14 @@ set backupdir^=$TEMP
 vnoremap <F5> :!python<CR>
 
 " Unite mappings
-nnoremap <leader>u :<C-u>Unite -no-split<CR>
-nnoremap <leader>a :<C-u>Unite -no-split -start-insert file_rec<CR>
-nnoremap <leader>b :<C-u>Unite -no-split buffer<CR>
-nnoremap <leader>f :<C-u>Unite -no-split -start-insert file<CR>
-nnoremap <leader>k :<C-u>Unite -no-split bookmark<CR>
-nnoremap <leader>m :<C-u>Unite -no-split -start-insert file_mru<CR>
-nnoremap <leader>t :<C-u>Unite -no-split tab<CR>
-nnoremap <leader>w :<C-u>Unite -no-split window<CR>
+nnoremap <leader>ua :<C-u>UniteWithProjectDir -start-insert file_rec<CR>
+nnoremap <leader>ub :<C-u>Unite buffer<CR>
+nnoremap <leader>uf :<C-u>UniteWithProjectDir -start-insert file<CR>
+nnoremap <leader>uk :<C-u>Unite -start-insert bookmark<CR>
+nnoremap <leader>um :<C-u>UniteWithProjectDir -start-insert file_mru<CR>
+nnoremap <leader>uo :<C-u>Unite -start-insert outline<CR>
+nnoremap <leader>ut :<C-u>Unite -start-insert tag<CR>
+nnoremap <leader>uw :<C-u>Unite window<CR>
 
 " Airline settings
 let g:airline_powerline_fonts = 1
@@ -99,23 +104,6 @@ let g:jedi#force_py_version = 3
 " Enable autocomplete
 let g:neocomplete#enable_at_startup = 1
 autocmd FileType python NeoCompleteLock
-
-" CoffeeTags settings
-if executable('coffeetags')
-  let g:tagbar_type_coffee = {
-        \ 'ctagsbin' : 'coffeetags',
-        \ 'ctagsargs' : '',
-        \ 'kinds' : [
-        \ 'f:functions',
-        \ 'o:object',
-        \ ],
-        \ 'sro' : ".",
-        \ 'kind2scope' : {
-        \ 'f' : 'object',
-        \ 'o' : 'object',
-        \ }
-        \ }
-endif
 
 " Enable Markdown for .md files
 au BufRead,BufNewFile *.md set filetype=markdown
