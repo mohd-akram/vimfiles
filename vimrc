@@ -23,8 +23,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
-Plug 'bling/vim-airline'
-Plug 'chriskempson/base16-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'atelierbram/vim-colors_atelier-schemes'
 Plug 'morhetz/gruvbox'
 
 call plug#end()
@@ -33,12 +34,15 @@ call plug#end()
 
 " Change the color scheme
 syntax on
-colorscheme gruvbox
+colorscheme base16-ateliersulphurpool
 
 " Change the font and remove GUI options
 if has('gui_running')
-  set guifont=Menlo\ for\ Powerline:h10
+  set guifont=Fantasque\ Sans\ Mono:h12
   set guioptions=
+  if has('directx')
+    set renderoptions=type:directx,renmode:5
+  endif
 endif
 
 " Set encoding
@@ -83,9 +87,9 @@ vnoremap <F5> :!python<CR>
 " Unite mappings
 nnoremap <leader>ua :<C-u>UniteWithProjectDir -start-insert file_rec<CR>
 nnoremap <leader>ub :<C-u>Unite buffer<CR>
-nnoremap <leader>uf :<C-u>UniteWithProjectDir -start-insert file<CR>
+nnoremap <leader>uf :<C-u>Unite -start-insert file<CR>
 nnoremap <leader>uk :<C-u>Unite -start-insert bookmark<CR>
-nnoremap <leader>um :<C-u>UniteWithProjectDir -start-insert file_mru<CR>
+nnoremap <leader>um :<C-u>Unite -start-insert file_mru<CR>
 nnoremap <leader>uo :<C-u>Unite -start-insert outline<CR>
 nnoremap <leader>ut :<C-u>Unite -start-insert tag<CR>
 nnoremap <leader>uw :<C-u>Unite window<CR>
