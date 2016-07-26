@@ -1,17 +1,10 @@
 " vim-plug settings
 
-call plug#begin('~/vimfiles/plugged')
+call plug#begin('~/' . (has('win32') ? 'vimfiles' : '.vim') . '/plugged')
 
 " GitHub repos
 Plug 'kchmck/vim-coffee-script'
 Plug 'davidhalter/jedi-vim'
-Plug 'Shougo/vimproc.vim', {'do': 'tools\\update-dll-mingw'}
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/unite-outline'
-Plug 'Shougo/neocomplete.vim'
-Plug 'Shougo/neoinclude.vim'
-Plug 'Shougo/neomru.vim'
-Plug 'tsukkee/unite-tag'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -27,6 +20,14 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'atelierbram/vim-colors_atelier-schemes'
 Plug 'morhetz/gruvbox'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/unite-outline'
+Plug 'tsukkee/unite-tag'
+Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/neoinclude.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'Shougo/vimproc.vim', {'do': has('win32') ? 'tools\\update-dll-mingw' :
+                                               \ 'make'}
 
 call plug#end()
 
@@ -38,12 +39,22 @@ colorscheme base16-ateliersulphurpool
 
 " Change the font and remove GUI options
 if has('gui_running')
-  set guifont=Fantasque\ Sans\ Mono:h12
+  if has('win32')
+    set guifont=Fantasque\ Sans\ Mono:h12
+  else
+    set guifont=Fantasque\ Sans\ Mono:h14
+  endif
   set guioptions=
   if has('directx')
     set renderoptions=type:directx,renmode:5
   endif
 endif
+
+" Disable beeps
+set visualbell
+
+" Switch buffers without saving
+set hidden
 
 " Set encoding
 set encoding=utf-8
