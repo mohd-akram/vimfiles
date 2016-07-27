@@ -6,5 +6,5 @@ setlocal foldmethod=indent
 setlocal foldlevel=99
 
 " Compile code
-inoremap <F5> <ESC> :make -m<CR>
-noremap <F5> :make -m<CR>
+inoremap <buffer> <F5> <ESC> :make -m<CR>
+noremap <buffer> <F5> :make -m<CR>

@@ -36,6 +36,7 @@ call plug#end()
 " Change the color scheme
 syntax on
 colorscheme base16-ateliersulphurpool
+set background=dark
 
 " Change the font and remove GUI options
 if has('gui_running')
@@ -67,7 +68,9 @@ set ruler
 set laststatus=2
 
 " Set number of lines, columns and colorcolumn
-set lines=45 columns=85
+if has('gui_running')
+  set lines=45 columns=85
+endif
 set colorcolumn=80
 
 " Set indent
