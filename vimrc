@@ -111,6 +111,7 @@ nnoremap <leader>uw :<C-u>Unite window<CR>
 " Airline settings
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " Bexec settings
 let bexec_splitdir = 'ver'
