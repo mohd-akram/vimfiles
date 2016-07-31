@@ -4,6 +4,7 @@ call plug#begin('~/' . (has('win32') ? 'vimfiles' : '.vim') . '/plugged')
 
 " GitHub repos
 Plug 'kchmck/vim-coffee-script'
+Plug 'rust-lang/rust.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'SirVer/ultisnips'
