@@ -29,6 +29,8 @@ Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/vimproc.vim', {'do': has('win32') ? 'tools\\update-dll-mingw' :
                                                \ 'make'}
+Plug 'OmniSharp/omnisharp-vim', {'do': 'cd server && ' . (has('win32') ?
+                                     \ 'msbuild' : 'xbuild')}
 
 call plug#end()
 
@@ -124,6 +126,17 @@ let g:jedi#force_py_version = 3
 " Enable autocomplete
 let g:neocomplete#enable_at_startup = 1
 autocmd FileType python NeoCompleteLock
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.cs = '.*[^=\);]'
+
+" OmniSharp settings
+let g:Omnisharp_start_server = 0
+autocmd FileType cs silent OmniSharpStartServerSolution %
+
+" Syntastic settings
+let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
 
 " Enable Markdown for .md files
 au BufRead,BufNewFile *.md set filetype=markdown
