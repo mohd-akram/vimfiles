@@ -1,6 +1,3 @@
-" Set indent
-setlocal softtabstop=4 shiftwidth=4 expandtab
-
 " Enable folding
 setlocal foldmethod=indent
 setlocal foldlevel=99
