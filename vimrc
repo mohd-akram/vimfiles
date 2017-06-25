@@ -9,9 +9,6 @@ Plug 'davidhalter/jedi-vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
 Plug 'fboender/bexec'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
@@ -20,10 +17,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'atelierbram/vim-colors_atelier-schemes'
-Plug 'morhetz/gruvbox'
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/unite-outline'
-Plug 'tsukkee/unite-tag'
 Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neomru.vim'
@@ -98,16 +91,6 @@ set backupdir^=$TEMP
 
 " Run Python snippets
 vnoremap <F5> :!python<CR>
-
-" Unite mappings
-nnoremap <leader>ua :<C-u>UniteWithProjectDir -start-insert file_rec<CR>
-nnoremap <leader>ub :<C-u>Unite buffer<CR>
-nnoremap <leader>uf :<C-u>Unite -start-insert file<CR>
-nnoremap <leader>uk :<C-u>Unite -start-insert bookmark<CR>
-nnoremap <leader>um :<C-u>Unite -start-insert file_mru<CR>
-nnoremap <leader>uo :<C-u>Unite -start-insert outline<CR>
-nnoremap <leader>ut :<C-u>Unite -start-insert tag<CR>
-nnoremap <leader>uw :<C-u>Unite window<CR>
 
 " Airline settings
 let g:airline_powerline_fonts = 1
