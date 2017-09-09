@@ -96,6 +96,7 @@ vnoremap <F5> :!python<CR>
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_theme = 'Atelier_SulphurpoolDark'
 
 " Bexec settings
 let bexec_splitdir = 'ver'
