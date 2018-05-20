@@ -102,9 +102,6 @@ let g:airline_theme = 'Atelier_SulphurpoolDark'
 let bexec_splitdir = 'ver'
 let bexec_outputmode = 'append'
 
-" Set Jedi Python version
-let g:jedi#force_py_version = 3
-
 " Enable autocomplete
 let g:neocomplete#enable_at_startup = 1
 autocmd FileType python NeoCompleteLock
