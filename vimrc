@@ -71,6 +71,10 @@ set colorcolumn=80
 set autoindent
 set softtabstop=2 shiftwidth=2 expandtab
 
+" Set comment options
+set commentstring=#%s
+let NERDSpaceDelims = 1
+
 " Set split options
 set splitright
 set splitbelow
