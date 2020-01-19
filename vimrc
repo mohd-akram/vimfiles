@@ -1,39 +1,12 @@
-" vim-plug settings
+" Enable the basics
+filetype plugin indent on
+syntax enable
 
-call plug#begin('~/' . (has('win32') ? 'vimfiles' : '.vim') . '/plugged')
-
-" GitHub repos
-Plug 'kchmck/vim-coffee-script'
-Plug 'rust-lang/rust.vim'
-Plug 'davidhalter/jedi-vim'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'fboender/bexec'
-Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/syntastic'
-Plug 'Yggdroot/indentLine'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'atelierbram/vim-colors_atelier-schemes'
-Plug 'Shougo/neocomplete.vim'
-Plug 'Shougo/neoinclude.vim'
-Plug 'Shougo/neomru.vim'
-Plug 'Shougo/vimproc.vim', {'do': has('win32') ? 'tools\\update-dll-mingw' :
-                                               \ 'make'}
-
-call plug#end()
-
-" My settings
-
-" Change the color scheme
-syntax on
-colorscheme Atelier_SulphurpoolDark
-set background=dark
-
-" Change the font and remove GUI options
+" Change the color scheme, font and remove GUI options
 if has('gui_running')
+  packadd vim-colors_atelier-schemes
+  colorscheme Atelier_SulphurpoolDark
+  set background=dark
   if has('win32')
     set guifont=Fantasque\ Sans\ Mono:h12
   else
@@ -69,11 +42,11 @@ set colorcolumn=80
 
 " Set indent
 set autoindent
-set softtabstop=2 shiftwidth=2 expandtab
 
 " Set comment options
 set commentstring=#%s
 let NERDSpaceDelims = 1
+packadd nerdcommenter
 
 " Set split options
 set splitright
@@ -96,19 +69,25 @@ set backupdir^=$TEMP
 " Run Python snippets
 vnoremap <F5> :!python<CR>
 
-" Airline settings
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_theme = 'Atelier_SulphurpoolDark'
-
-" Bexec settings
+" Add code runner
 let bexec_splitdir = 'ver'
 let bexec_outputmode = 'append'
+packadd bexec
 
-" Enable autocomplete
-let g:neocomplete#enable_at_startup = 1
-autocmd FileType python NeoCompleteLock
+" Add statusline
+if has('gui_running')
+  let g:airline_powerline_fonts = 1
+  let g:airline_theme = colors_name
+endif
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+packadd vim-airline
+
+" Add autocomplete
+autocmd InsertEnter * call deoplete#enable()
+packadd nvim-yarp
+packadd vim-hug-neovim-rpc
+packadd deoplete.nvim
 
 " Remove trailing whitespace on save
 fun! <SID>StripTrailingWhitespaces()
@@ -118,3 +97,41 @@ fun! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+" Package update helper
+function! PackUpdate() abort
+  packadd minpac
+  call minpac#init()
+  call minpac#add('k-takata/minpac', {'type': 'opt'})
+  " GitHub repos
+  let opts = {'type': 'opt'}
+  call minpac#add('scrooloose/nerdcommenter', opts)
+  call minpac#add('fboender/bexec', opts)
+  call minpac#add('vim-airline/vim-airline', opts)
+  call minpac#add('atelierbram/vim-colors_atelier-schemes', opts)
+  call minpac#add('Shougo/deoplete.nvim', opts)
+  call minpac#add('roxma/nvim-yarp', opts)
+  call minpac#add('roxma/vim-hug-neovim-rpc', opts)
+  call minpac#add('Yggdroot/indentLine', opts)
+  call minpac#add('scrooloose/syntastic', opts)
+  call minpac#add('SirVer/ultisnips', opts)
+  call minpac#add('honza/vim-snippets', opts)
+  call minpac#add('airblade/vim-gitgutter', opts)
+  call minpac#add('ludovicchabant/vim-gutentags', opts)
+  call minpac#add('kchmck/vim-coffee-script', opts)
+  call minpac#add('davidhalter/jedi-vim', opts)
+  call minpac#add('rust-lang/rust.vim', opts)
+  call minpac#update()
+  call minpac#clean()
+endfunction
+
+" Packages
+packadd indentLine
+packadd syntastic
+packadd ultisnips
+packadd vim-snippets
+packadd vim-gitgutter
+packadd vim-gutentags
+packadd vim-coffee-script
+packadd jedi-vim
+packadd rust.vim
